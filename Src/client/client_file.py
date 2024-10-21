@@ -1,7 +1,6 @@
 import socket, os
 
-# 从父级文件导入:
-from Src import setting
+import setting
 
 
 def SendFile():
