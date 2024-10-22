@@ -1,5 +1,5 @@
 import socket, os
-from Src import setting
+from Setting import setting
 
 
 def OpenServer():
