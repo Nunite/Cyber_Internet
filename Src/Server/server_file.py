@@ -1,5 +1,5 @@
 import socket, os
-import setting
+from .. import setting
 
 
 def OpenServer():
@@ -14,8 +14,12 @@ def OpenServer():
     FileInfo = client_socket.recv(setting.Chunk_Size).decode()
     FileName, FileSize = FileInfo.split(setting.SEPARATOR)
     FileSize = int(FileSize)
+    # 获取当前工作目录
+    current_directory = os.getcwd()
+    # 拼接文件路径
+    file_path = os.path.join(current_directory, FileName)
     # 接受并创建文件:
-    with open(FileName, "+wb") as f:
+    with open(file_path, "+wb") as f:
         while True:
             FileContent = client_socket.recv(setting.Chunk_Size)
             if not FileContent:

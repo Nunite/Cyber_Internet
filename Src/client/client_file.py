@@ -1,6 +1,6 @@
 import socket, os
 
-import setting
+from .. import setting
 
 
 def SendFile():
