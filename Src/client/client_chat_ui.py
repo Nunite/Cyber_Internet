@@ -15,29 +15,79 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QPlainTextEdit, QPushButton, QSizePolicy,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QHBoxLayout, QHeaderView, QPlainTextEdit,
+    QPushButton, QSizePolicy, QTableWidget, QTableWidgetItem,
+    QTextEdit, QWidget)
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(400, 300)
-        self.pushButton = QPushButton(Form)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(160, 250, 75, 23))
-        self.plainTextEdit = QPlainTextEdit(Form)
+class Ui_Ui(object):
+    def setupUi(self, Ui):
+        if not Ui.objectName():
+            Ui.setObjectName(u"Ui")
+        Ui.resize(1070, 540)
+        self.textEdit = QTextEdit(Ui)
+        self.textEdit.setObjectName(u"textEdit")
+        self.textEdit.setGeometry(QRect(9, 9, 791, 331))
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.textEdit.sizePolicy().hasHeightForWidth())
+        self.textEdit.setSizePolicy(sizePolicy)
+        self.textEdit.setReadOnly(True)
+        self.plainTextEdit = QPlainTextEdit(Ui)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(50, 20, 301, 201))
+        self.plainTextEdit.setGeometry(QRect(10, 350, 791, 151))
+        sizePolicy.setHeightForWidth(self.plainTextEdit.sizePolicy().hasHeightForWidth())
+        self.plainTextEdit.setSizePolicy(sizePolicy)
+        self.tableWidget = QTableWidget(Ui)
+        if (self.tableWidget.columnCount() < 2):
+            self.tableWidget.setColumnCount(2)
+        font = QFont()
+        font.setBold(True)
+        __qtablewidgetitem = QTableWidgetItem()
+        __qtablewidgetitem.setFont(font);
+        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        if (self.tableWidget.rowCount() < 2):
+            self.tableWidget.setRowCount(2)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tableWidget.setVerticalHeaderItem(1, __qtablewidgetitem3)
+        self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setGeometry(QRect(810, 10, 256, 491))
+        sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
+        self.tableWidget.setSizePolicy(sizePolicy)
+        self.tableWidget.setColumnCount(2)
+        self.layoutWidget = QWidget(Ui)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(640, 510, 158, 25))
+        self.horizontalLayout = QHBoxLayout(self.layoutWidget)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_2 = QPushButton(self.layoutWidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
 
-        self.retranslateUi(Form)
+        self.horizontalLayout.addWidget(self.pushButton_2)
 
-        QMetaObject.connectSlotsByName(Form)
+        self.pushButton = QPushButton(self.layoutWidget)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.horizontalLayout.addWidget(self.pushButton)
+
+
+        self.retranslateUi(Ui)
+
+        QMetaObject.connectSlotsByName(Ui)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
-        self.pushButton.setText(QCoreApplication.translate("Form", u"PushButton", None))
-        self.plainTextEdit.setPlaceholderText(QCoreApplication.translate("Form", u"Hello World!", None))
+    def retranslateUi(self, Ui):
+        Ui.setWindowTitle(QCoreApplication.translate("Ui", u"Form", None))
+        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("Ui", u"Name", None));
+        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("Ui", u"IP", None));
+        self.pushButton_2.setText(QCoreApplication.translate("Ui", u"PushButton", None))
+        self.pushButton.setText(QCoreApplication.translate("Ui", u"PushButton", None))
     # retranslateUi
 
