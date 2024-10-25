@@ -25,3 +25,6 @@ def SendFile():
                 break
             s.sendall(chunk)
     s.close()
+
+
+SendFile()
