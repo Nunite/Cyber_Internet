@@ -15,9 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QHBoxLayout,
-    QHeaderView, QPlainTextEdit, QPushButton, QSizePolicy,
-    QTableWidget, QTableWidgetItem, QTextEdit, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QFrame,
+    QHBoxLayout, QHeaderView, QPlainTextEdit, QPushButton,
+    QSizePolicy, QTableWidget, QTableWidgetItem, QTextEdit,
+    QWidget)
 
 class Ui_Ui(object):
     def setupUi(self, Ui):
@@ -54,14 +55,24 @@ class Ui_Ui(object):
         __qtablewidgetitem2 = QTableWidgetItem()
         self.tableWidget.setVerticalHeaderItem(0, __qtablewidgetitem2)
         self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(855, 10, 211, 491))
+        self.tableWidget.setGeometry(QRect(855, 10, 221, 491))
         sizePolicy.setHeightForWidth(self.tableWidget.sizePolicy().hasHeightForWidth())
         self.tableWidget.setSizePolicy(sizePolicy)
+        self.tableWidget.viewport().setProperty("cursor", QCursor(Qt.ArrowCursor))
+        self.tableWidget.setLayoutDirection(Qt.LeftToRight)
+        self.tableWidget.setAutoFillBackground(False)
+        self.tableWidget.setFrameShadow(QFrame.Sunken)
+        self.tableWidget.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.tableWidget.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
         self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setSortingEnabled(False)
+        self.tableWidget.setWordWrap(True)
+        self.tableWidget.setCornerButtonEnabled(True)
         self.tableWidget.setColumnCount(2)
         self.layoutWidget = QWidget(Ui)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(690, 500, 151, 31))
+        self.layoutWidget.setGeometry(QRect(690, 500, 158, 31))
         self.horizontalLayout = QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
