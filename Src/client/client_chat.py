@@ -124,7 +124,7 @@ if __name__ == "__main__":
     # Current_users.append(User_Lwx)
     Username = "Lws"
     UserClient = ClientToServer(
-        ServerIP=until.Serverhost, ServerPort=until.Serverport, Username=Username
+        ServerIP=until.Testhost, ServerPort=until.Serverport, Username=Username
     )
     UserClient.Connect()
     win = MainWindow(client=UserClient)

@@ -71,5 +71,5 @@ class ServerToClient:
 
 
 if __name__ == "__main__":
-    server = ServerToClient(ServerIP=until.Serverhost, ServerPort=until.Serverport)
+    server = ServerToClient(ServerIP=until.Testhost, ServerPort=until.Serverport)
     server.start()

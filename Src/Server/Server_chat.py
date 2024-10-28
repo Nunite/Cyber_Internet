@@ -14,16 +14,17 @@ class ServerToClient:
         self.s.bind((ServerIP, ServerPort))
         self.s.listen(5)
         self.ChunkSize = until.Chunk_Size  # 1024
-        self.clients_socket = []  # 连接的客户端socket列表
+        self.clients = []  # 连接的客户端socket列表
         self.Users = []  # 用户组
 
     # 广播聊天信息：
     def Broadcast(self, message):
-        for client in self.clients_socket:
+        for client in self.clients:
             try:
-                client.sendall(message.encode())
+                client.sendall(message)
             except:
-                self.clients_socket.remove(client)
+                print("Clear")
+                self.clients.remove(client)
 
     # 发送用户组:
     def SendUsers(self):
@@ -36,7 +37,7 @@ class ServerToClient:
 
             User = {"name": user_name, "ip": addr[0]}
             self.Users.append(User)
-            self.clients_socket.append(client_socket)
+            self.clients.append(client_socket)
             self.SendUsers()
             while True:
                 message = client_socket.recv(self.ChunkSize)
@@ -70,5 +71,5 @@ class ServerToClient:
 
 
 if __name__ == "__main__":
-    Server = ServerToClient(ServerIP=until.Serverhost, ServerPort=until.Serverport)
+    Server = ServerToClient(ServerIP=until.Testhost, ServerPort=until.Serverport)
     Server.mainloop()

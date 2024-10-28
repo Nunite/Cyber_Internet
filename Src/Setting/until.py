@@ -1,5 +1,5 @@
-Serverhost = "192.168.1.169"
-Testhost = "192.168.43.130"
+Serverhost = "192.168.43.130"
+Testhost = "192.168.1.169"
 Serverport = 7230
 Chunk_Size = 1024
 SEPARATOR = "<#>"

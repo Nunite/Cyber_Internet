@@ -99,7 +99,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     username = "ClientUser"  # 可以改为动态输入用户名
     client = ClientToServer(
-        ServerIP=until.Serverhost, ServerPort=until.Serverport, username=username
+        ServerIP=until.Testhost, ServerPort=until.Serverport, username=username
     )
     client.connect_to_server()
     win = MainWindow(client=client)
